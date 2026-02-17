@@ -30,15 +30,9 @@ class meydaHandler implements FormatHandler {
       to: true,
       internal: "audio"
     });
-    if (dummy.canPlayType("audio/mpeg")) this.supportedFormats.push({
-      name: "MP3 Audio",
-      format: "mp3",
-      extension: "mp3",
-      mime: "audio/mpeg",
-      from: true,
-      to: false,
-      internal: "audio"
-    });
+    if (dummy.canPlayType("audio/mpeg")) this.supportedFormats.push(
+      CommonFormats.MP3.supported("audio", true, false)
+    );
     if (dummy.canPlayType("audio/ogg")) this.supportedFormats.push({
       name: "Ogg Audio",
       format: "ogg",

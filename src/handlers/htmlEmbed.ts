@@ -21,15 +21,7 @@ class htmlEmbedHandler implements FormatHandler {
       to: false,
       internal: "mp4"
     },
-    {
-      name: "MP3 Audio",
-      format: "mp3",
-      extension: "mp3",
-      mime: "audio/mpeg",
-      from: true,
-      to: false,
-      internal: "mp3"
-    }
+    CommonFormats.MP3.supported("mp3", true, false)
   ];
   public ready: boolean = false;
 

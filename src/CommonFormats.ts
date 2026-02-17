@@ -53,6 +53,13 @@ const CommonFormats = {
         "html",
         "html",
         "text/html"
+    ),
+    // audio
+    MP3: new FormatDefinition(
+        "MP3 Audio",
+        "mp3",
+        "mp3",
+        "audio/mpeg"
     )
 }
 
