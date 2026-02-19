@@ -1,52 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="color-scheme:dark;">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <title>Convert to it!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#FF6B9D">
+  <meta name="color-scheme" content="dark">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="FCO.TOOLS">
+  <meta name="description" content="Offline-capable, all-in-one file converter. Images, video, audio, docs, archives.">
+  <link rel="manifest" href="/convert/manifest.json">
+  <link rel="icon" href="/convert/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="/convert/favicon.png" type="image/png">
+  <title>FCO.TOOLS</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; background: #07080F; color: #E8E8FF; color-scheme: dark; overflow: hidden; }
+    body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    #root { height: 100%; display: flex; flex-direction: column; }
+    input, button, select, textarea { font-family: inherit; color: inherit; background: transparent; border: none; outline: none; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #ffffff1a; border-radius: 2px; }
+  </style>
 </head>
 <body>
-
-  <input id="file-input" type="file">
-
-  <div id="file-area">
-    <h2>Click to add your file</h2>
-    <p id="drop-hint-text">or drag and drop it here</p>
-  </div>
-  <div id="side-panel">
-    <button id="mode-button">Advanced mode</button>
-  </div>
-
-  <div id="format-containers">
-
-    <div id="from-container" class="format-container">
-      <h2>Convert from:</h2>
-      <input type="text" id="search-from" class="search" placeholder="Search">
-      <div id="from-list" class="format-list">
-
-      </div>
-    </div>
-
-    <div id="to-container" class="format-container">
-      <h2>Convert to:</h2>
-      <input type="text" id="search-to" class="search" placeholder="Search">
-      <div id="to-list" class="format-list">
-
-      </div>
-    </div>
-
-  </div>
-
-  <button id="convert-button" class="disabled">Convert</button>
-
-  <div id="popup-bg"></div>
-  <div id="popup">
-    <h2>Loading tools...</h2>
-  </div>
-
-  <script type="module" src="src/main.ts"></script>
-
+  <div id="root"></div>
+  <script type="module" src="external/main.tsx"></script>
 </body>
 </html>

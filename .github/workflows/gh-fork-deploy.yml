@@ -1,0 +1,49 @@
+name: Fork Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["master", "main"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "gh-fork-deploy"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: "latest"
+          cache: true
+
+      - name: Install dependencies
+        run: bun i --frozen-lockfile
+
+      - name: Build
+        run: bun run build
+
+      - name: Generate cache
+        run: bun run buildCache.js dist/cache.json
+
+      - name: Move assets into dist/convert
+        run: bash external/post-build.sh
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          force_orphan: true
+          cname: fco.tools

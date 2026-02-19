@@ -1,0 +1,26 @@
+{
+  "name": "FCO.TOOLS",
+  "short_name": "FCO.TOOLS",
+  "description": "Offline-capable, all-in-one file converter. Images, video, audio, docs, archives.",
+  "start_url": "/convert/",
+  "scope": "/convert/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#07080F",
+  "theme_color": "#FF6B9D",
+  "categories": ["utilities", "productivity"],
+  "icons": [
+    {
+      "src": "/convert/favicon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/convert/favicon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
