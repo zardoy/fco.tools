@@ -3,6 +3,6 @@ services:
     build:
       context: ..
       args:
-        VITE_COMMIT_SHA: docker
+        GIT_COMMIT_SHA: docker
       dockerfile: docker/Dockerfile
     image: convert:dev

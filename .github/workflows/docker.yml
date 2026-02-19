@@ -43,7 +43,7 @@ jobs:
         with:
           context: .
           arguments: |
-            VITE_COMMIT_SHA=${{ github.sha }}
+            GIT_COMMIT_SHA=${{ github.sha }}
           file: docker/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
