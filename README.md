@@ -2,6 +2,8 @@
 
 > Rolling experimental improvements, opinionated features & workflows.
 
+<img src="demo.png" alt="Demo" width="800">
+
 ---
 
 ## Features
