@@ -764,6 +764,7 @@ export default function App() {
     initializeFormats().then(() => {
       setFormats(getFormats());
       setLoading(false);
+      console.log("Built initial format list.");
     });
   }, []);
 

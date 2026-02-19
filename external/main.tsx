@@ -1,6 +1,12 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './converter.jsx';
+import { getFormatCacheJSON } from './conversionService.ts';
+
+// Expose for buildCache.js (puppeteer) when using external/main.tsx as entry
+if (typeof window !== 'undefined') {
+  (window as unknown as { printSupportedFormatCache: () => string }).printSupportedFormatCache = getFormatCacheJSON;
+}
 
 // ─── ERROR BOUNDARY ──────────────────────────────────────────────────────────
 

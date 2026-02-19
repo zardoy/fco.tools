@@ -98,6 +98,11 @@ export async function initializeFormats() {
   return allOptions;
 }
 
+/** Serialize format cache to JSON (same shape as src/main.ts for buildCache.js). */
+export function getFormatCacheJSON(): string {
+  return JSON.stringify(Array.from(supportedFormatCache.entries()), null, 2);
+}
+
 export function getFormats() {
   return allOptions;
 }
