@@ -18,9 +18,9 @@
     "desktop:build": "tsc && IS_DESKTOP=true vite build && bun run cache:build",
     "desktop:preview": "electron .",
     "desktop:start": "bun run desktop:build && bun run desktop:preview",
-    "desktop:dist:win": "bun run desktop:build && electron-builder --win",
-    "desktop:dist:mac": "bun run desktop:build && electron-builder --mac",
-    "desktop:dist:linux": "bun run desktop:build && electron-builder --linux"
+    "desktop:dist:win": "bun run desktop:build && electron-builder --win --publish never",
+    "desktop:dist:mac": "bun run desktop:build && electron-builder --mac --publish never",
+    "desktop:dist:linux": "bun run desktop:build && electron-builder --linux --publish never"
   },
   "build": {
     "appId": "com.p2r3.convert",
