@@ -47,13 +47,14 @@ class canvasToBlobHandler implements FormatHandler {
         const string = new TextDecoder().decode(inputFile.bytes);
         const lines = string.split("\n");
 
+        this.#ctx.font = font;
+
         let maxLineWidth = 0;
         for (const line of lines) {
           const width = this.#ctx.measureText(line).width;
           if (width > maxLineWidth) maxLineWidth = width;
         }
 
-        this.#ctx.font = font;
         this.#canvas.width = maxLineWidth;
         this.#canvas.height = Math.floor(fontSize * lines.length + footerPadding);
 
@@ -77,7 +78,7 @@ class canvasToBlobHandler implements FormatHandler {
         // For SVG, convert to data URL to avoid "Tainted canvases may not be exported" error
         const url =
           inputFormat.mime === "image/svg+xml"
-            ? `data:${inputFormat.mime};base64,${btoa(String.fromCharCode(...inputFile.bytes))}`
+            ? `data:${inputFormat.mime};base64,${btoa(inputFile.bytes.reduce((str, byte) => str + String.fromCharCode(byte), ''))}`
             : URL.createObjectURL(blob);
 
         const image = new Image();

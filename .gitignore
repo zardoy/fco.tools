@@ -5,3 +5,5 @@ start.sh
 dist
 cache.json
 .DS_Store
+release
+cache.json
