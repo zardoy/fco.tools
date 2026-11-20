@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './converter.jsx';
+import MovedNotice from './MovedNotice.tsx';
 import { getFormatCacheJSON } from './conversionService.ts';
 
 // Expose for buildCache.js (puppeteer) when using external/main.tsx as entry
@@ -83,6 +84,7 @@ if (container) {
   root.render(
     <ErrorBoundary>
       <App />
+      <MovedNotice />
     </ErrorBoundary>
   );
 }
